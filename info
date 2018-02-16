@@ -1,0 +1,11 @@
+Tic tac toe game
+
+1. How to represent X and O?
+boolean, char, enum?
+
+2.Board [] or [][]?
+123
+456
+789
+
+Exceptions handling
