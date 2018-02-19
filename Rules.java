@@ -1,31 +1,33 @@
 package game;
 
 public class Rules {
-	public static boolean gameRunning = true;
 	
-	public boolean isGameOver(Board board) {
+	
+	public static boolean isGameOver(Board board) {
 		if(checkIfOWins(board)){
 			System.out.println("Player with O wins!");
-			gameRunning = false;
+			Game.gameRunning = false;
+			GameStats.countOfComputerVictories++;
 			return true;
 		}
 		
 		if(checkIfXWins(board)){
 			System.out.println("Player with X wins!");
-			gameRunning = false;
+			Game.gameRunning = false;
+			GameStats.countOfPlayerVictories++;
 			return true;
 		}
 		
 		if(checkIfDraw(board)) {
 			System.out.println("Draw!");
-			gameRunning = false;
+			Game.gameRunning = false;
 			return true;
 		}
 		
 		return false;
 	}
 	
-	public boolean checkIfDraw(Board board) {
+	public static boolean checkIfDraw(Board board) {
 		int occupiedFields = 0;
 		for(int i = 0; i<9;i++) {
 			if(!board.getGameBoard()[i].isFieldEmpty()){
@@ -39,7 +41,7 @@ public class Rules {
 		return false;
 	}
 	
-	public boolean checkIfOWins(Board board) {
+	public static boolean checkIfOWins(Board board) {
 		if(board.getGameBoard()[0].isO() && board.getGameBoard()[1].isO() && board.getGameBoard()[2].isO()) {
 			return true;
 		}
@@ -67,7 +69,7 @@ public class Rules {
 		return false;
 	}
 	
-	public boolean checkIfXWins(Board board) {
+	public static boolean checkIfXWins(Board board) {
 		if(board.getGameBoard()[0].isX() && board.getGameBoard()[1].isX() && board.getGameBoard()[2].isX()) {
 			return true;
 		}
