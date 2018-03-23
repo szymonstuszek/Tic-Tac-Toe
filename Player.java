@@ -1,18 +1,42 @@
-package game;
+package tictactoe;
 
-import java.util.Scanner;
+import java.io.Serializable;
+import java.util.Random;
 
-public class Player {
-	Scanner sc = new Scanner(System.in);
-	
-	public boolean canIPlaceX(Board board) {
-		System.out.println("Place the X:");
-		int fieldChoice = sc.nextInt()-1;
-		if(board.getGameBoard()[fieldChoice].isFieldEmpty()){
-			board.getGameBoard()[fieldChoice].setX();
-			return true;
-		}
-		System.out.println("Try again");
-		return false;
+public class Player implements Serializable {
+	private static final long serialVersionUID = -1795151425576919304L;
+	private String playerName;
+	private Stats stats;
+
+	public Player(String playerName, Stats stats) {
+		this.playerName = playerName;
+		this.stats = stats;
 	}
+
+	public Player() {
+
+	}
+	
+	public Stats getStats() {
+		return stats;
+	}
+
+	public void setStats(Stats stats) {
+		this.stats = stats;
+	}
+	
+	public String getPlayerName() {
+		return playerName;
+	}
+
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+
+	@Override
+	public String toString() {
+		return playerName + " " + "Wins: " + getStats().getCountOfPlayerVictories() + " Loses: "
+				+ getStats().getCountOfComputerVictories() + " Games: " + getStats().getCountOfGamesPlayed();
+	}
+
 }
