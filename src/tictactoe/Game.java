@@ -2,7 +2,6 @@ package tictactoe;
 
 import java.util.Random;
 
-
 import panels.GameFrame;
 import panels.MainPanel;
 import panels.MenuPanel;
