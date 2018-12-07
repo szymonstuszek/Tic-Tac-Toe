@@ -1,2 +1,2 @@
 ## Tic-Tac-Toe
-Tic tac toe game in java
+Simple implementation of the tic-tac-toe game in java. Graphical interface written in swing.
